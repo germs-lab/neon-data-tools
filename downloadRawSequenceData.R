@@ -11,6 +11,7 @@ downloadRawSequenceData <- function(sites="all", startYrMo="YYYY-MM", endYrMo="Y
   
   dat <- loadByProduct(dpID="DP1.10108.001", site=sites, startdate=startYrMo, enddate=endYrMo,
                        package="expanded", check.size=checkFileSize)
+  # DP1.10107.001 is metagenomes
   
   u.urls <- unique(dat$mmg_soilRawDataFiles$rawDataFilePath)
   fileNms <- gsub('^.*\\/', "", u.urls)
