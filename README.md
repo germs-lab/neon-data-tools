@@ -39,7 +39,7 @@
    for i in *.tar.gz; do mkdir ${i//.fastq.tar.gz//}; tar -zxvf $i -C ${i//.fastq.tar.gz//}; done
    # remove gz files
    rm *.gz
-   for i in */; do cd $i; find . -type f -name "*.fastq" | tr '\n' '\0' | xargs -0 -I {} mv {} .; done
+   for i in */; do cd /PATH/TO/$i; find . -type f -name "*.fastq" | tr '\n' '\0' | xargs -0 -I {} mv {} .; done
    for i in */; do rm -r $i/hpc; done
    ```
    
