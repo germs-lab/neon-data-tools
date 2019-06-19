@@ -44,7 +44,7 @@
    ```
    
 7. the fastq names can be linked to DNA sample ID, dates, and sites using the CSV table from step 3.  
-   + neon field site to state information [here]
+   + neon field site to state information [here](https://github.com/germs-lab/neon-data-tools/blob/master/neon_field-sites.csv)
 
    
    
