@@ -26,4 +26,25 @@
    while read line; do echo "curl -O $line"; done < ../all_fq.url > ../get_all_fq.sh
    ```
    
+5. Download 
+   ```
+   cd neon_csv 
+   mkdir ../neon_fqs && cd ../neon_fqs
+   bash ../get_all_fq.sh`  
+   ```
+   
+6. untar into new dir names and get rid of all unneeded dir levels  
+   ```
+   cd neon_fqs
+   for i in *.tar.gz; do mkdir ${i//.fastq.tar.gz//}; tar -zxvf $i -C ${i//.fastq.tar.gz//}; done
+   # remove gz files
+   rm *.gz
+   for i in */; do cd $i; find . -type f -name "*.fastq" | tr '\n' '\0' | xargs -0 -I {} mv {} .; done
+   for i in */; do rm -r $i/hpc; done
+   ```
+   
+7. the fastq names can be linked to DNA sample ID, dates, and sites using the CSV table from step 3.  
+   + neon field site to state information [here]
+
+   
    
